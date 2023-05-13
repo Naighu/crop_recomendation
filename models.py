@@ -46,3 +46,11 @@ class PredictCrop(BaseModel):
        
     ),
     
+class PriceCrop(Enum):
+    MANGO="mango"
+
+class PredictPriceRequest(BaseModel):
+    crop: PriceCrop
+    steps: int
+
+
