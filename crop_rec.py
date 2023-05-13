@@ -42,13 +42,13 @@ gnb.fit(X_train, y_train)
 print("Naive bayes trainig completed")
 
 #XGBOOST
-from xgboost import XGBClassifier
-xgb = XGBClassifier()
-from sklearn.preprocessing import LabelEncoder
-le = LabelEncoder()
-y_xgb = le.fit_transform(y_train)
-xgb.fit(X_train, y_xgb)
-print("XGboost trainig completed")
+# from xgboost import XGBClassifier
+# xgb = XGBClassifier()
+# from sklearn.preprocessing import LabelEncoder
+# le = LabelEncoder()
+# y_xgb = le.fit_transform(y_train)
+# xgb.fit(X_train, y_xgb)
+# print("XGboost trainig completed")
 
 
 def predict(model,input):
