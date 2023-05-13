@@ -1,7 +1,7 @@
 from fastapi import FastAPI,Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-from models import PredictCrop,Model,PriceCrop,PredictPrice
+from models import PredictCrop,Model,PriceCrop,PredictPriceRequest
 import logging,os
 import numpy as np
 import crop_rec as crop
@@ -34,6 +34,30 @@ def get_price_model_file(crop: PriceCrop):
 
     if(crop == PriceCrop.MANGO):
         return "prediction_models/mango.pkl"
+    if(crop == PriceCrop.BANANA):
+        return "prediction_models/banana.pkl"
+    if(crop == PriceCrop.BLACK_PEPPER):
+        return "prediction_models/black pepper.pkl"
+    if(crop == PriceCrop.BRINJAL):
+        return "prediction_models/brinjal.pkl"
+    if(crop == PriceCrop.CARROT):
+        return "prediction_models/carrot.pkl"
+    if(crop == PriceCrop.GREEN_CHILLI):
+        return "prediction_models/green chilli.pkl"
+    if(crop == PriceCrop.GREEN_PEAS):
+        return "prediction_models/green peas.pkl"
+    if(crop == PriceCrop.JACK_FRUIT):
+        return "prediction_models/jack fruit.pkl"
+    if(crop == PriceCrop.ONION):
+        return "prediction_models/onion.pkl"
+    if(crop == PriceCrop.PAPAYA):
+        return "prediction_models/papaya.pkl"
+    if(crop == PriceCrop.RICE):
+        return "prediction_models/rice.pkl"
+    if(crop == PriceCrop.SWEET_POTATO):
+        return "prediction_models/sweet potato.pkl"
+    if(crop == PriceCrop.TAPIOCA):
+        return "prediction_models/tapioca.pkl"
     
 
 
@@ -71,7 +95,7 @@ async def root(cropPredict: PredictCrop):
         return {"response_code": 500,"message" : "Something went wrong", "error": e}
 
 @app.post("/predict_price",status_code=201)
-async def root(priceRequest: PredictPrice):
+async def root(priceRequest: PredictPriceRequest):
     try:
 
         model_path = get_price_model_file(priceRequest.crop)
@@ -91,4 +115,4 @@ async def root(priceRequest: PredictPrice):
         return {"response_code": 500,"message" : "Something went wrong", "error": e}
 
 
-uvicorn.run(app, port=6666)
+uvicorn.run(app,host="159.89.161.168", port=6666)

@@ -48,6 +48,19 @@ class PredictCrop(BaseModel):
     
 class PriceCrop(Enum):
     MANGO="mango"
+    BANANA="banana"
+    BLACK_PEPPER = "black pepper"
+    BRINJAL= "brinjal"
+    CARROT="carrot"
+    GREEN_CHILLI = "green chilli"
+    GREEN_PEAS = "green peas"
+    JACK_FRUIT="jack fruit"
+    ONION = "onion"
+    PAPAYA= "papaya"
+    RICE = "rice"
+    SWEET_POTATO = "sweet potato"
+    TAPIOCA = "tapioca"
+
 
 class PredictPriceRequest(BaseModel):
     crop: PriceCrop
